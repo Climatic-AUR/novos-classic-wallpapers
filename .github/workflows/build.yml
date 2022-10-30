@@ -16,7 +16,6 @@ jobs:
        with:
          docker-image: menci/aur-builder:archlinux
          platform: linux/amd64
-         pkgbuild-directory: /
          extra-build-dependencies: desktop-file-utils hicolor-icon-theme
          # The value of "Packager" field of built package.
          packager: NovusOh
