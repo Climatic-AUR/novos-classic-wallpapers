@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
     
-  jobs:
+jobs:
    build:
      runs-on: ubuntu-latest
      steps:
@@ -20,11 +20,6 @@ on:
          platform: linux/amd64
          pkgbuild-directory: /
          extra-build-dependencies: desktop-file-utils hicolor-icon-theme
-         repo-url: # optional, default is 
-         # Don't check if the existence of the target package even if `repo-url` option is specfied.
-         force-rebuild: # optional, default is false
-         # The target directory (on GitHub Action runner) to put the built package files to.
-         target-directory: 
          # The value of "Packager" field of built package.
          packager: NovusOh
          # The file path to save the build log.
