@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build Package
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Build Arch Linux Package
+  # You may pin to the exact commit or the version.
+  # uses: Menci/build-archlinux-package@2bf49233cc85786df75aa750e1d6c994e534395d
+        uses: Menci/build-archlinux-package@beta-v1
+         with:
+    docker-image: menci/aur-builder-archlinux:latest
+    platform: linux/amd64
+    pkgbuild-directory: /
+    extra-build-dependencies: desktop-file-utils hicolor-icon-theme
+    repo-url: # optional, default is 
+    # Don't check if the existence of the target package even if `repo-url` option is specfied.
+    force-rebuild: # optional, default is false
+    # The target directory (on GitHub Action runner) to put the built package files to.
+    target-directory: 
+    # The value of "Packager" field of built package.
+    packager: NovusOh
+    # The file path to save the build log.
+    build-log-file: /dev/null
