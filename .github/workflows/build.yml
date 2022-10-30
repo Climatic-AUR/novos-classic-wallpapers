@@ -14,7 +14,7 @@ jobs:
      - name: Build Package
        uses: Menci/build-archlinux-package@beta-v1
        with:
-         docker-image: menci/aur-builder-archlinux:latest
+         docker-image: menci/aur-builder:archlinux
          platform: linux/amd64
          pkgbuild-directory: /
          extra-build-dependencies: desktop-file-utils hicolor-icon-theme
