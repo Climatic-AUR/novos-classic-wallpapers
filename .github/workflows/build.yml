@@ -17,6 +17,7 @@ jobs:
          docker-image: menci/aur-builder:archlinux
          platform: linux/amd64
          extra-build-dependencies: desktop-file-utils hicolor-icon-theme
+         pkgbuild-directory: /PKGBUILD
          # The value of "Packager" field of built package.
          packager: NovusOh
          # The file path to save the build log.
